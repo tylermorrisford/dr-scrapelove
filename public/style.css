@@ -2,6 +2,10 @@
     font-family: Lato;
 }
 
+.brand-logo {
+    font-family: Roboto Mono;
+}
+
 #wrapper {
     width: 960px;
     margin-left: auto;
