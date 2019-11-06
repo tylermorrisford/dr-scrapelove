@@ -99,16 +99,21 @@ app.get("/articles/:id", function(req, res) {
 
 // Route for saving/updating an Article's associated Note
 app.post("/articles/:id", function(req, res) {
-  // TODO
-  // ====
   // save the new note that gets posted to the Notes collection
   // then find an article from the req.params.id
   // and update it's "note" property with the _id of the new note
 db.Note.create(req.body)
 .then(function(dbNote){
-  return db.Article.findOneAndUpdate({}, // Need to complete this route
-    )
+    return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
 })
+.then(function(dbArticle) {
+  // If we were able to successfully update an Article, send it back to the client
+  res.json(dbArticle);
+})
+.catch(function(err) {
+  // If an error occurred, send it to the client
+  res.json(err);
+});
 });
 
 // Start the server
