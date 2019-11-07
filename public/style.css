@@ -3,7 +3,8 @@
 }
 
 .brand-logo {
-    font-family: Roboto Mono;
+    font-family: Roboto Mono, monospace;
+    /* font-family: sax-mono, monospace; */
 }
 
 #wrapper {
