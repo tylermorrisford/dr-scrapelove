@@ -61,7 +61,7 @@ app.get("/scrape", function(req, res) {
     });
 
     // Send a message to the client
-    res.send('<p>Scrape Complete</p><a href="/"> Back to home</a>');
+    res.send('<p>Scrape Complete</p><a href="/"> ⬅ Back to home</a>');
   });
 });
 
