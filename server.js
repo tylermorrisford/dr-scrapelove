@@ -22,11 +22,11 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/freeCodeCampNews", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/freeCodeCampNews", { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Routes
 
-// A GET route for scraping the echoJS website
+// A GET route for scraping the freeCodeCamp news page
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with axios
   axios.get("https://www.freecodecamp.org/news").then(function(response) {
@@ -38,14 +38,18 @@ app.get("/scrape", function(req, res) {
       // Save an empty result object
       var result = {};
 
-      // Add the text and href of every link, and save them as properties of the result object
+      // Add the text, href and image of every link, and save them as properties of the result object
       result.title = $(this)
         .children("a")
         .text();
       result.link = $(this)
         .children("a")
         .attr("href");
-
+      result.image = $(this)
+        .children("a")
+        .find("img")
+        .attr("src");
+        console.log(result.image);
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {

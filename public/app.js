@@ -1,3 +1,10 @@
+// Dr. ScrapeLove to do
+/*  1. add photo from article -- started
+    2. add functionality to load multiple notes 
+    3. finish styling
+    4. add email yourself a link functionality
+*/
+
 // init sidenav
 $(document).ready(function(){
     $('.sidenav').sidenav();
@@ -9,14 +16,12 @@ $(document).ready(function(){
 $.getJSON("/articles", function(data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
-      // Display the apropos information on the page
-      $("#articles").append("<p class='modal-trigger' data-target='modal1' data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+      // Display the article; add class and data-target for notes modal
+      $("#articles").append("<article class='modal-trigger' data-target='modal1' data-id='" + data[i]._id + "'><img src=" + data[i].image + "><h5>" + data[i].title + "</h5><br /><p>" + data[i].link + "</p></article>");
     }
   });
-//   modal-trigger" data-target='modal1'
-  
-  // Whenever someone clicks a p tag
-  $(document).on("click", "p", function() {
+  // https://www.freecodecamp.org/news/learn-python-by-building-5-games/
+  $(document).on("click", "article", function() {
     // Empty the notes from the note section
     $("#notes").empty();
     // Save the id from the p tag
