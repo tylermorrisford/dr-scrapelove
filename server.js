@@ -5,14 +5,12 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-// 
 var db = require("./models");
 
 var PORT = 3000;
 
 var app = express();
 // middleware
-// NEED TO UPDATE FROM HERE DOWN TO FINISH BUILD_____________________
 // Use morgan logger for logging requests
 app.use(logger("dev"));
 // Parse request body as JSON
@@ -47,9 +45,9 @@ app.get("/scrape", function(req, res) {
         .attr("href");
       result.image = $(this)
         .children("a")
-        .find("img")
+        .children("img")   // .find("img")  ?
         .attr("src");
-        console.log(result.image);
+        // console.log(result.image); this is undefined
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {
@@ -63,7 +61,7 @@ app.get("/scrape", function(req, res) {
     });
 
     // Send a message to the client
-    res.send("Scrape Complete");
+    res.send('<p>Scrape Complete</p><a href="/"> Back to home</a>');
   });
 });
 

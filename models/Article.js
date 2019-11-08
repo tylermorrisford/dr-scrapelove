@@ -18,7 +18,7 @@ var ArticleSchema = new Schema({
   },
   image: {
     type: String,
-    required: true
+    required: false  // this should be set to true once img src path can be found
   },
   // `note` is an object that stores a Note id
   // The ref property links the ObjectId to the Note model

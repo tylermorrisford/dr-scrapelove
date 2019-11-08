@@ -1,8 +1,8 @@
 // Dr. ScrapeLove to do
 /*  1. add photo from article -- started
     2. add functionality to load multiple notes 
-    3. finish styling
-    4. add email yourself a link functionality
+    3. finish styling -- started
+    4. add email yourself a link functionality || where?
 */
 
 // init sidenav
