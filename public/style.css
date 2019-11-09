@@ -27,11 +27,20 @@ html {
 }
 
 nav {
-    height: 60px;
+    height: 55px;
+}
+
+a .brand-logo {
+    padding: 5px, 0, 5px, 0;
 }
 
 a img {
     height: 30px;
+}
+
+a li {
+    margin: 5px, 0;
+    padding: 5px, 0;
 }
 
 .nav-wrapper {
