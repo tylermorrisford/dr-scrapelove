@@ -26,8 +26,21 @@ html {
     font-family: Lato;
 }
 
+nav {
+    height: 60px;
+}
+
+a img {
+    height: 30px;
+}
+
+.nav-wrapper {
+    padding: 0 20px 0 20px;
+}
+
 .brand-logo {
     font-family: Roboto Mono, monospace;
+    font-size: 12px;
     /* font-family: sax-mono, monospace; */
 }
 
