@@ -1,6 +1,6 @@
 // Dr. ScrapeLove to do
 /*  1. add photo from article -- started - need help
-    2. add functionality to load multiple notes 
+    2. add functionality to load multiple notes // previous note works
     3. finish styling -- started
     4. add email yourself a link functionality, probably in the server...?
 
