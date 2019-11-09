@@ -1,8 +1,12 @@
 // Dr. ScrapeLove to do
-/*  1. add photo from article -- started
+/*  1. add photo from article -- started - need help
     2. add functionality to load multiple notes 
     3. finish styling -- started
-    4. add email yourself a link functionality || where?
+    4. add email yourself a link functionality, probably in the server...?
+
+    QUESTIONS: 
+    1. what is morgan? 
+    2.
 */
 
 // init sidenav
@@ -43,13 +47,18 @@ $.getJSON("/articles", function(data) {
         $("#notes").append("<textarea id='bodyinput' placeholder='note body' name='body'></textarea>");
         // A button to submit a new note, with the id of the article saved to it
         $("#notes").append("<button class='waves-effect waves-light btn-small black white-text' data-id='" + data._id + "' id='savenote'>Save Note</button>");
+        $("#notes").append("<hr><p>Existing Notes:</p><div id='stored-notes'></div>");
   
         // If there's a note in the article
         if (data.note) {
           // Place the title of the note in the title input
-          $("#titleinput").val(data.note.title);
+          // need for loop?
+        //   $("#stored-notes").val(data.note.title);
+          $("#stored-notes").text(data.note.title);
+          $("#stored-notes").append("<br>");
           // Place the body of the note in the body textarea
-          $("#bodyinput").val(data.note.body);
+        //   $("#stored-notes").val(data.note.body);
+          $("#stored-notes").append(data.note.body);
         }
       });
   });
