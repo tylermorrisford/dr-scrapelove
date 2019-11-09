@@ -2,11 +2,12 @@
 /*  1. add photo from article -- started - need help
     2. add functionality to load multiple notes // previous note works
     3. finish styling -- mostly done!
-    4. add email yourself a link functionality, probably in the server...?
+    4. add email yourself a link functionality in the server
 
     QUESTIONS: 
     1. what is morgan? 
-    2. 
+    2. how to load image to cheerio
+    3. load multiple notes, model needs updating
 */
 
 // init sidenav
@@ -38,7 +39,7 @@ $.getJSON("/articles", function(data) {
     })
       // With that done, add the note information to the page
       .then(function(data) {
-        console.log(data);
+        // console.log(data);
         // The title of the article
         $("#notes").append("<h5>" + data.title + "</h5>");
         // An input to enter a new title
@@ -53,8 +54,8 @@ $.getJSON("/articles", function(data) {
         if (data.note) {
           // Place the title of the note in the title input
           // need for loop?
-          console.log('this is data', data);
-          console.log('\n this is data.note', data.note);
+        //   console.log('this is data', data);
+        //   console.log('\n this is data.note', data.note);
         //   $("#stored-notes").val(data.note.title);
           $("#stored-notes").append(data.note.title);
           $("#stored-notes").append("<br>");

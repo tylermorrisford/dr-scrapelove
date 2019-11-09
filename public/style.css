@@ -18,8 +18,9 @@ html {
   }
   
   img {
-    max-width: 100%;
+    width: 250px;
     height: auto;
+    display: inline-block;
   }
 
 * {
