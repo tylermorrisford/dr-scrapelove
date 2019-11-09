@@ -47,14 +47,14 @@ $.getJSON("/articles", function(data) {
         $("#notes").append("<textarea id='bodyinput' placeholder='note body' name='body'></textarea>");
         // A button to submit a new note, with the id of the article saved to it
         $("#notes").append("<button class='waves-effect waves-light btn-small black white-text' data-id='" + data._id + "' id='savenote'>Save Note</button>");
-        $("#notes").append("<hr><p>Existing Notes:</p><div id='stored-notes'></div>");
+        $("#notes").append("<h6 class='center'>Existing Notes:</h6><hr class='hr-modal'><div id='stored-notes'></div>");
   
         // If there's a note in the article
         if (data.note) {
           // Place the title of the note in the title input
           // need for loop?
         //   $("#stored-notes").val(data.note.title);
-          $("#stored-notes").text(data.note.title);
+          $("#stored-notes").append(data.note.title);
           $("#stored-notes").append("<br>");
           // Place the body of the note in the body textarea
         //   $("#stored-notes").val(data.note.body);

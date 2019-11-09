@@ -45,7 +45,7 @@ app.get("/scrape", function(req, res) {
         .attr("href");
       result.image = $(this)
         .children("a")
-        .children("img")   // .find("img")  ?
+        .children("img")   // .find("img")  or .children("img") ?
         .attr("src");
         // console.log(result.image); this is undefined
       // Create a new Article using the `result` object built from scraping

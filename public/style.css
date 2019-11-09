@@ -42,6 +42,10 @@ article {
     margin-bottom: 20px;
 }  
 
+.hr-modal {
+    width: 90%;
+    align-content: left;
+}
 
 
 /* body { background-color: #F2F6D0 }
