@@ -16,6 +16,10 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
+  tag: {
+    type: String,
+    required: true
+  },
   image: {
     type: String,
     // required: true  // this should be set to true once img src path can be found

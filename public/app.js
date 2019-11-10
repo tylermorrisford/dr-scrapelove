@@ -19,11 +19,15 @@ $(document).ready(function(){
 $.getJSON("/articles", function(data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
-      // Display the article; add class and data-target for notes modal
-      $("#articles").append("<article class='modal-trigger' data-target='modal1' data-id='" + data[i]._id + "'><img src=" + data[i].image + "><div class='clear'><h5>" + data[i].title + "</h5><br /><p>" + data[i].link + "</p></div></article>");
-    }
+        if ( !data[i].image.includes("https://") ) {
+    data[i].image = 'https://freecodecamp.org' + data[i].image;
+} else {
+    console.log('full image link found');
+}
+        $("#articles").append("<article class='modal-trigger' data-target='modal1' data-id='" + data[i]._id + "'><img src=" + data[i].image + "><div class='clear'><p>" + data[i].tag + "</p><h5>" + data[i].title + "</h5><br /><p>" + data[i].link + "</p></div></article>");
+} 
   });
-  // https://www.freecodecamp.org/news/learn-python-by-building-5-games/
+
   $(document).on("click", "article", function() {
     // Empty the notes from the note section
     $("#notes").empty();

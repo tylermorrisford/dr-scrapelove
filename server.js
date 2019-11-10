@@ -39,7 +39,10 @@ app.get("/scrape", function(req, res) {
       // Add the text, href and image of every link, and save them as properties of the result object
       result.title = $(this)
         .find("h2").text().trim();
-        console.log('this is result.title: ', result.title);
+        // console.log('this is result.title: ', result.title);
+        result.tag = $(this)
+        .find("span").text().trim();
+        console.log('this is result.tag: ', result.tag);
       result.link = $(this)
         .children("a")
         .attr("href");
@@ -113,5 +116,5 @@ db.Note.create(req.body)
 
 
 app.listen(PORT, function() {
-  console.log("App running on port " + PORT + "!");
+  console.log("App running on localhost: " + PORT);
 });
