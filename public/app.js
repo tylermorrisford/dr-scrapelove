@@ -3,6 +3,7 @@
     2. create route to allow users to delete notes
     3. add handlebars :/
     4. add validation to prohibit scraping the same articles multiple times
+    5. add to portfolio
 */
 
 // init mobile-friendly sidenav
