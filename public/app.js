@@ -2,6 +2,7 @@
 /*  1. add functionality to load multiple notes // only previous note works
     2. create route to allow users to delete notes
     3. add handlebars :/
+    4. add validation to prohibit scraping the same articles multiple times
 */
 
 // init mobile-friendly sidenav
