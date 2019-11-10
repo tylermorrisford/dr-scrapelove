@@ -39,7 +39,8 @@ a img {
     height: 30px;
 }
 
-a li {
+li a {
+    font-family: 'Roboto Mono', monospace;
     margin: 5px, 0;
     padding: 5px, 0;
 }
@@ -49,7 +50,7 @@ a li {
 }
 
 .brand-logo {
-    font-family: Roboto Mono, monospace;
+    font-family: 'Roboto Mono', monospace;
     font-size: 12px;
     /* font-family: sax-mono, monospace; */
 }
@@ -64,12 +65,21 @@ a li {
 article {
     display: flex;
     align-items: flex-end;
-    margin-bottom: 20px;
+    margin: 0 20px 50px;
 }  
 
+article img {
+    padding-right: 30px;
+}
+
+.tag {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    /* font-family: ; */
+}
+
 .clear {
-    padding-left: 25px;
-    padding-bottom: 50px;
+    padding: auto 0 20px 0;
 }
 
 .hr-modal {

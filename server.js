@@ -109,7 +109,6 @@ db.Note.create(req.body)
   res.json(dbArticle);
 })
 .catch(function(err) {
-  // If an error occurred, send it to the client
   res.json(err);
 });
 });

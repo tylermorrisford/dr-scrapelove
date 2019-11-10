@@ -1,11 +1,7 @@
 // Dr. ScrapeLove to do
-/*  2. add functionality to load multiple notes // previous note works
-    3. finish styling -- mostly done!
-    4. add email yourself a link functionality in the server
+/*  1. add functionality to load multiple notes // previous note works
+    2. allow users to delete notes
 
-    QUESTIONS: 
-    1. what is morgan? 
-    2. load multiple notes, model needs updating
 */
 
 // init sidenav
@@ -24,7 +20,7 @@ $.getJSON("/articles", function(data) {
 } else {
     console.log('full image link found');
 }
-        $("#articles").append("<article class='modal-trigger' data-target='modal1' data-id='" + data[i]._id + "'><img src=" + data[i].image + "><div class='clear'><p>" + data[i].tag + "</p><h5>" + data[i].title + "</h5><br /><p>" + data[i].link + "</p></div></article>");
+        $("#articles").append("<article class='modal-trigger' data-target='modal1' data-id='" + data[i]._id + "'><img src=" + data[i].image + "><div class='clear'><p class='tag'>" + data[i].tag + "</p><h5>" + data[i].title + "</h5><br /><p>" + data[i].link + "</p></div></article>");
 } 
   });
 
@@ -54,16 +50,14 @@ $.getJSON("/articles", function(data) {
   
         // If there's a note in the article
         if (data.note) {
-          // Place the title of the note in the title input
-          // need for loop?
-        //   console.log('this is data', data);
-        //   console.log('\n this is data.note', data.note);
-        //   $("#stored-notes").val(data.note.title);
+                // use map to display 
           $("#stored-notes").append(data.note.title);
           $("#stored-notes").append("<br>");
-          // Place the body of the note in the body textarea
-        //   $("#stored-notes").val(data.note.body);
           $("#stored-notes").append(data.note.body);
+          console.log('this is data.note.id: ', data.note.id);
+          $("#stored-notes").append("<br><button data-id=" 
+          + thisId 
+          + " class='waves-effect waves-light btn-small black white-text'>delete note</button><hr class='hr-modal'>")
         }
       });
   });
@@ -87,9 +81,9 @@ $.getJSON("/articles", function(data) {
       // With that done
       .then(function(data) {
         // Log the response
-        // console.log(data);
+        console.log(data);
         // Empty the notes section
-        $("#notes").empty();
+        $("#notes").text('note saved!');
       });
   
     // Also, remove the values entered in the input and textarea for note entry
