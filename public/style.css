@@ -22,9 +22,8 @@ html {
     display: flex;
   }
 
-
 * {
-    font-family: Lato;
+    font-family: 'Lato';
 }
 
 nav {
@@ -52,7 +51,6 @@ li a {
 .brand-logo {
     font-family: 'Roboto Mono', monospace;
     font-size: 12px;
-    /* font-family: sax-mono, monospace; */
 }
 
 #wrapper {
@@ -75,7 +73,6 @@ article img {
 .tag {
     text-transform: uppercase;
     font-size: 0.8rem;
-    /* font-family: ; */
 }
 
 .clear {
@@ -86,35 +83,3 @@ article img {
     width: 90%;
     align-content: left;
 }
-
-
-/* body { background-color: #F2F6D0 }
-      #wrapper {
-        width: 960px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 5%;
-      }
-      #articles {
-        display: inline-block;
-        overflow: auto;
-        width: 60%;
-        height: 700px;
-      }
-      #notes {
-        float: right;
-        width: 30%;
-      }
-      textarea, input {
-        display: block;
-        width: 100%;
-        background-color: #FCF5C7;
-      }
-      input {
-        height: 36px;
-        font-size: 24px;
-      }
-      textarea {
-        height: 200px;
-        font-size: 18px;
-      } */
