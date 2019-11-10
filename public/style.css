@@ -17,11 +17,11 @@ html {
     list-style: none;
   }
   
-  img {
-    width: 250px;
-    height: auto;
-    display: inline-block;
+ article img {
+    max-width: 250px;
+    display: flex;
   }
+
 
 * {
     font-family: Lato;
@@ -62,8 +62,15 @@ a li {
   }
 
 article {
+    display: flex;
+    align-items: flex-end;
     margin-bottom: 20px;
 }  
+
+.clear {
+    padding-left: 25px;
+    padding-bottom: 50px;
+}
 
 .hr-modal {
     width: 90%;

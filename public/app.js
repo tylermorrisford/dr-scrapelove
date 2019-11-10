@@ -1,13 +1,11 @@
 // Dr. ScrapeLove to do
-/*  1. add photo from article -- started - need help
-    2. add functionality to load multiple notes // previous note works
+/*  2. add functionality to load multiple notes // previous note works
     3. finish styling -- mostly done!
     4. add email yourself a link functionality in the server
 
     QUESTIONS: 
     1. what is morgan? 
-    2. how to load image to cheerio
-    3. load multiple notes, model needs updating
+    2. load multiple notes, model needs updating
 */
 
 // init sidenav
@@ -22,7 +20,7 @@ $.getJSON("/articles", function(data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
       // Display the article; add class and data-target for notes modal
-      $("#articles").append("<article class='modal-trigger' data-target='modal1' data-id='" + data[i]._id + "'><img src=" + data[i].image + "><h5>" + data[i].title + "</h5><br /><p>" + data[i].link + "</p></article>");
+      $("#articles").append("<article class='modal-trigger' data-target='modal1' data-id='" + data[i]._id + "'><img src=" + data[i].image + "><div class='clear'><h5>" + data[i].title + "</h5><br /><p>" + data[i].link + "</p></div></article>");
     }
   });
   // https://www.freecodecamp.org/news/learn-python-by-building-5-games/

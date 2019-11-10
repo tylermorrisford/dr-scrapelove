@@ -31,34 +31,29 @@ app.get("/scrape", function(req, res) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
 
-    // Now, we grab every h2 within an article tag, and do the following:
+    // Now, we grab every article tag, and do the following:
     $("article").each(function(i, element) {
       // Save an empty result object
       var result = {};
 
       // Add the text, href and image of every link, and save them as properties of the result object
       result.title = $(this)
-        .children(".post-card-title")
-        .children("h2").text();
+        .find("h2").text().trim();
+        console.log('this is result.title: ', result.title);
       result.link = $(this)
         .children("a")
         .attr("href");
       result.image = $(this)
         .children("a")
-        .children("img").attr("src")
-        // .first().attr("src")   // .find("img")  or .children("img") ?
-        // .attr("src");
+        .children("img").attr("src");
 
       /* 
       add concatenation in app.js for adding image url 
       */
 
-        console.log('result', result.title);
-        // console.log(result.image); this is undefined
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {
-          // View the added result in the console
           console.log(dbArticle.image );
         })
         .catch(function(err) {
@@ -86,12 +81,6 @@ app.get("/articles", function(req, res) {
 
 // Route for grabbing a specific Article by id, populate it with it's note
 app.get("/articles/:id", function(req, res) {
-  // TODO
-  // ====
-  // Finish the route so it finds one article using the req.params.id,
-  // and run the populate method with "note",
-  // then responds with the article with the note included
-
   db.Article.findOne({_id: req.params.id})
     .populate("note")
     .then(function (dbArticle){
@@ -108,9 +97,6 @@ app.get("/articles/:id", function(req, res) {
 
 // Route for saving/updating an Article's associated Note
 app.post("/articles/:id", function(req, res) {
-  // save the new note that gets posted to the Notes collection
-  // then find an article from the req.params.id
-  // and update it's "note" property with the _id of the new note
 db.Note.create(req.body)
 .then(function(dbNote){
     return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
@@ -125,8 +111,7 @@ db.Note.create(req.body)
 });
 });
 
-// Start the server
+
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
 });
-
