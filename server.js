@@ -1,6 +1,6 @@
-// require node packages:
+// require node packages: 
 var express = require("express");
-var exphdbs = require("express-handlebars");
+// var exphbs  = require('express-handlebars');
 var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
