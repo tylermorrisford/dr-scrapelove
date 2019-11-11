@@ -1,8 +1,10 @@
 // require node packages: 
 var express = require("express");
+var exphbs  = require('express-handlebars');
 var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
+var path = require('path');
 
 // require mongoose models
 var db = require("./models");
@@ -15,6 +17,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
+
+app.set('views', path.join(__dirname, 'views/'));
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+ 
+app.get('/', function (req, res) {
+    res.render('index');
+});
 
 // connect to the Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/freeCodeCampNews";
@@ -36,7 +46,7 @@ app.get("/scrape", function(req, res) {
         .find("h2").text().trim();
         result.tag = $(this)
         .find("span").text().trim();
-        console.log('this is result.tag: ', result.tag);
+        // console.log('this is result.tag: ', result.tag);
       result.link = $(this)
         .children("a")
         .attr("href");
@@ -52,10 +62,11 @@ app.get("/scrape", function(req, res) {
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {
-          console.log(dbArticle.image );
+          // console.log(dbArticle.image);
         })
         .catch(function(err) {
-          console.log(err);
+          // alert('Sorry! There\'s no new content to scrape!');
+          console.log('mongo !!ERROR!! :  ', err);
         });
     });
 
@@ -104,7 +115,7 @@ db.Note.create(req.body)
 });
 });
 
-// Route for delete an Article's associated Note
+// Route for delete an Article's associated Note // up to now only this only deletes the note's content, not the note object
 app.post("/articles/:id", function(req, res) {
    db.Article.findOneAndDelete({ _id: req.params.id }, { note: dbNote._id }, { new: true });
   })

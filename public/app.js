@@ -1,8 +1,8 @@
 // Dr. ScrapeLove to do:
 /*  1. add functionality to load multiple notes // only previous note works
-    2. create route to allow users to delete notes
+    2. create route to allow users to delete notes // only deletes the note content, not the note object
     3. add handlebars :/
-    4. add validation to prohibit scraping the same articles multiple times // started, need to display feedback
+    4. add validation to prohibit scraping the same articles multiple times // works, need to alert user
     5. add to portfolio
 */
 
