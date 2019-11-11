@@ -117,7 +117,7 @@ db.Note.create(req.body)
 
 // Route for delete an Article's associated Note // up to now only this only deletes the note's content, not the note object
 app.post("/articles/:id", function(req, res) {
-   db.Article.findOneAndDelete({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+   db.Article.findOneAndDelete({ _id: req.params.id }, { note: dbNote._id });
   })
 
 

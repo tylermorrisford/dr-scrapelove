@@ -40,14 +40,14 @@ $(document).on("click", "article", function () {
             $("#notes").append("<input id='titleinput' placeholder='note title' name='title' >");
             $("#notes").append("<textarea id='bodyinput' placeholder='note body' name='body'></textarea>");
             $("#notes").append("<button class='waves-effect waves-light btn-small black white-text' data-id='" + data._id + "' id='savenote'>Save Note</button>");
-            $("#notes").append("<h6 class='center'>Existing Notes:</h6><hr class='hr-modal'><div id='stored-notes'></div>");
-
+            
             if (data.note) {
                 // use map to display 
+                $("#notes").append("<h6 class='center'>Existing Notes:</h6><hr class='hr-modal'><div id='stored-notes'></div>");
                 $("#stored-notes").append(data.note.title);
                 $("#stored-notes").append("<br>");
                 $("#stored-notes").append(data.note.body);
-                console.log('this is data.note.id: ', data.note.id);
+                // console.log('this is data.note.id: ', data.note.id);
                 $("#stored-notes").append("<br><button id='delete-note' data-id="
                     + thisId
                     + " class='waves-effect waves-light btn-small black white-text'>delete note</button><hr class='hr-modal'>")
