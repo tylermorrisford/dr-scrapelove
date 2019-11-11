@@ -104,6 +104,11 @@ db.Note.create(req.body)
 });
 });
 
+// Route for delete an Article's associated Note
+app.post("/articles/:id", function(req, res) {
+   db.Article.findOneAndDelete({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+  })
+
 
 app.listen(PORT, function() {
   console.log("App running on localhost: " + PORT);

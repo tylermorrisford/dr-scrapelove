@@ -2,7 +2,7 @@
 /*  1. add functionality to load multiple notes // only previous note works
     2. create route to allow users to delete notes
     3. add handlebars :/
-    4. add validation to prohibit scraping the same articles multiple times
+    4. add validation to prohibit scraping the same articles multiple times // started, need to display feedback
     5. add to portfolio
 */
 
@@ -48,7 +48,7 @@ $(document).on("click", "article", function () {
                 $("#stored-notes").append("<br>");
                 $("#stored-notes").append(data.note.body);
                 console.log('this is data.note.id: ', data.note.id);
-                $("#stored-notes").append("<br><button data-id="
+                $("#stored-notes").append("<br><button id='delete-note' data-id="
                     + thisId
                     + " class='waves-effect waves-light btn-small black white-text'>delete note</button><hr class='hr-modal'>")
             }
@@ -76,6 +76,28 @@ $(document).on("click", "#savenote", function () {
             $("#notes").text('note saved!');
         });
 
-    $("#titleinput").val("");
-    $("#bodyinput").val("");
+    // $("#titleinput").val("");
+    // $("#bodyinput").val("");
+});
+
+// route to delete notes:
+$(document).on("click", "#delete-note", function () {
+    // grab the id 
+    var thisId = $(this).attr("data-id");
+
+    // which method to delete?
+    $.ajax({
+        method: "POST",
+        url: "/articles/" + thisId,
+        data: {
+            title: $("#titleinput").val(),
+            body: $("#bodyinput").val()
+        }
+    })
+
+        .then(function (data) {
+            console.log(data);
+            // display feedback to the user
+            $("#notes").text('note deleted!');
+        });
 });
