@@ -18,7 +18,7 @@ app.use(express.static("public"));
 
 // connect to the Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/freeCodeCampNews";
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 // Routes================= //
 
@@ -60,7 +60,7 @@ app.get("/scrape", function(req, res) {
     });
 
     // display feedback
-    res.send('<p>Scrape Complete</p><a href="/"> ⬅ Back to home</a>');
+    res.redirect('/');
   });
 });
 
