@@ -41,14 +41,14 @@ $(document).on("click", "article", function () {
             $("#notes").append("<button class='waves-effect waves-light btn-small black white-text' data-id='" + data._id + "' id='savenote'>Save Note</button>");
             
             if (data.note) {
-                // use map to display 
+                // use map to display // looks like multiple notes save but with odd relationships to the article
                 $("#notes").append("<h6 class='center'>Existing Notes:</h6><hr class='hr-modal'><div id='stored-notes'></div>");
                 $("#stored-notes").append(data.note.title);
                 $("#stored-notes").append("<br>");
                 $("#stored-notes").append(data.note.body);
                 // console.log('this is data.note.id: ', data.note.id);
                 $("#stored-notes").append("<br><button id='delete-note' data-id="
-                    + thisId
+                    + data.note._id
                     + " class='waves-effect waves-light btn-small black white-text'>delete note</button><hr class='hr-modal'>")
             }
         });
@@ -87,7 +87,7 @@ $(document).on("click", "#delete-note", function () {
     // which method to delete?
     $.ajax({
         method: "POST",
-        url: "/articles/" + thisId,
+        url: "/notes/" + thisId,
         data: {
             title: $("#titleinput").val(),
             body: $("#bodyinput").val()

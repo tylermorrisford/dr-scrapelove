@@ -101,7 +101,7 @@ app.get("/articles/:id", function(req, res) {
   });
 
 
-// Route for saving/updating an Article's associated Note NEED TO UPDATE LOGIC FOR MANY NOTES
+// Saving/updating an Article's associated Note NEED TO UPDATE LOGIC FOR MANY NOTES
 app.post("/articles/:id", function(req, res) {
 db.Note.create(req.body)
 .then(function(dbNote){
@@ -115,9 +115,13 @@ db.Note.create(req.body)
 });
 });
 
-// Route for delete an Article's associated Note // up to now only this only deletes the note's content, not the note object
-app.post("/articles/:id", function(req, res) {
-   db.Article.findOneAndDelete({ _id: req.params.id }, { note: dbNote._id });
+// Delete an Article's associated Note // up to now only this only deletes the note's content, not the note object
+app.post("/notes/:id", function(req, res) {
+  console.log('note id: ',req.params.id);
+   db.Note.deleteOne({ _id: req.params.id })
+   .then(function(dbNote) {
+     res.json(dbNote);
+   });
   })
 
 
