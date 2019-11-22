@@ -17,7 +17,7 @@ $.getJSON("/articles", function (data) {
         if (!data[i].image.includes("https://")) {
             data[i].image = 'https://freecodecamp.org' + data[i].image;
         } else {
-            console.log('full image link found');
+            console.log('full image link found!');
         }
         $("#articles").append("<article class='modal-trigger' data-target='modal1' data-id='" + data[i]._id + "'><img src=" + data[i].image + "><div class='clear'><p class='tag'>" + data[i].tag + "</p><h5>" + data[i].title + "</h5><br /><p>" + data[i].link + "</p></div></article>");
     }

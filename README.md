@@ -1,5 +1,5 @@
 # dr-scrapelove
-A web-scraping app using Mongoose &amp; Cheerio
+A web-scraping app using Handlebars Mongoose &amp; Cheerio
 
 ## Index
 1. Problem it solves
