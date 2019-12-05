@@ -61,7 +61,7 @@ app.get("/scrape", function(req, res) {
       /* 
       NOTE: for images hosted on freecodecamp that are not rendered with a full (external) url i.e. '/news/authors/images/dwayne-johnson.jpg',
       there is logic included in app.js (line 16) to concatenate the missing part of the image url. 
-      */
+      */  
 
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
@@ -81,7 +81,7 @@ app.get("/scrape", function(req, res) {
 
 // Route for getting all Articles from the db
 app.get("/articles", function(req, res) {
-  db.Article.find({})
+  db.Article.find({}).sort({_id : -1})
     .then(function(dbArticle) {
       res.json(dbArticle);
   })
