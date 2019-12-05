@@ -9,7 +9,7 @@ var path = require('path');
 // require mongoose models
 var db = require("./models");
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3003;
 
 var app = express();
 
@@ -28,7 +28,11 @@ app.get('/', function (req, res) {
 
 // connect to the Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/freeCodeCampNews";
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect(MONGODB_URI, 
+  { useNewUrlParser: true, 
+  useUnifiedTopology: true, 
+  useFindAndModify: false }
+  ).then(() => {console.log('db connected')});
 
 // Routes================= //
 
