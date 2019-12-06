@@ -90,7 +90,7 @@ app.get("/articles", function(req, res) {
     })
 });
 
-// Route for grabbing a specific Article by id, populate it with it's note
+// Route for grabbing a specific Article by id, populate it with note
 app.get("/articles/:id", function(req, res) {
   db.Article.findOne({_id: req.params.id})
     .populate("note")
@@ -119,7 +119,7 @@ db.Note.create(req.body)
 });
 });
 
-// Delete an Article's associated Note // up to now only this only deletes the note's content, not the note object
+// Delete an Article's associated Note // 
 app.post("/notes/:id", function(req, res) {
   console.log('note id: ',req.params.id);
    db.Note.deleteOne({ _id: req.params.id })

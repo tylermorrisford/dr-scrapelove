@@ -35,10 +35,10 @@ $(document).on("click", "article", function () {
     })
         .then(function (data) {
             // console.log(data);
-            $("#notes").prepend("<h5>" + data.title + "</h5>");
-            $("#notes").prepend("<input id='titleinput' placeholder='note title' name='title' >");
-            $("#notes").prepend("<textarea id='bodyinput' placeholder='note body' name='body'></textarea>");
-            $("#notes").prepend("<button class='waves-effect waves-light btn-small black white-text' data-id='" + data._id + "' id='savenote'>Save Note</button>");
+            $("#notes").append("<h5>" + data.title + "</h5>");
+            $("#notes").append("<input id='titleinput' placeholder='note title' name='title' >");
+            $("#notes").append("<textarea id='bodyinput' placeholder='note body' name='body'></textarea>");
+            $("#notes").append("<button class='waves-effect waves-light btn-small black white-text' data-id='" + data._id + "' id='savenote'>Save Note</button>");
             
             if (data.note) {
                 // use map to display // looks like multiple notes save but with odd relationships to the article
