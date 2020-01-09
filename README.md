@@ -1,5 +1,7 @@
 # dr-scrapelove
 A web-scraping app using Handlebars Mongoose &amp; Cheerio
+[Demo the app on heroku>](https://shrouded-springs-77789.herokuapp.com/)
+![image](https://user-images.githubusercontent.com/49931992/72040636-6aea1480-3266-11ea-90d0-43cf9c050daf.png)
 
 ## Index
 1. Problem it solves
@@ -22,7 +24,6 @@ npm install
 ``` 
 to install the packages and dependencies(in this case: mongoose, handlebars, express, axios and cheerio). [Install Mongo>](https://docs.mongodb.com/manual/installation/) and start a Mongo database. Finally, edit the server.js file with your local database credentials.  
 
-OR! [Demo the app on heroku>](https://shrouded-springs-77789.herokuapp.com/)
 
 ## Built with
 * [Node](https://nodejs.org/en/) - Asynchronous, single-threaded js runtime environment
