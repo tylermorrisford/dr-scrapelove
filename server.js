@@ -9,7 +9,7 @@ var path = require('path');
 // require mongoose models
 var db = require("./models");
 
-var PORT = process.env.PORT || 3003;
+var PORT = process.env.PORT || 3005;
 
 var app = express();
 
@@ -74,7 +74,6 @@ app.get("/scrape", function(req, res) {
         });
     });
 
-    // display feedback
     res.redirect('/');
   });
 });
