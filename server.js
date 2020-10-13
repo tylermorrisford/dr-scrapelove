@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
-// connect to the Mongo DB
+// connect to the Mongo DB // changed heroku config var
 var MONGODB_URI = process.env.DB_URI || "mongodb://localhost/freeCodeCampNews";
 mongoose.connect(MONGODB_URI, 
   { useNewUrlParser: true, 
